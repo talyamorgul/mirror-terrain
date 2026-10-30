@@ -796,7 +796,8 @@
   function rvPlay() {                                    // all rovers drive at the same speed: a longer route finishes later
     if (RV.raf) { rvStop(); return; }
     const maxLen = Math.max(0, ...RV.gls.map((d) => d.len || 0)); if (!maxLen) return;
-    const dur = +new URLSearchParams(location.search).get("rvdur") || 12000, t0 = performance.now();   // ?rvdur= only for recording a slow take RV.anim = { d: 0 };
+    // ?rvdur= (ms) only for recording a slow take
+    const dur = +new URLSearchParams(location.search).get("rvdur") || 12000, t0 = performance.now(); RV.anim = { d: 0 };
     const step = () => { const now = performance.now(); RV.anim.d = maxLen * Math.min(1, (now - t0) / dur); RV.gls.forEach((d) => d());
       if (now - t0 < dur) RV.raf = requestAnimationFrame(step); else { RV.raf = 0; rvBtn(false); } };
     rvBtn(true); RV.raf = requestAnimationFrame(step);
