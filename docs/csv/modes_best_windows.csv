@@ -1,0 +1,56 @@
+veri,target,mod,en_iyi_alan,en_iyi_lat,en_iyi_lon,en_iyi_skor,tr_en_iyi_alan,tr_lat,tr_lon,tr_skor,dunya_pencere_degisti,tr_pencere_degisti
+Ay LOLA 40 m,Moon_Malapert,Genel,Hawaii_MaunaKea,19.806,-155.502,55.5,SCAN_37.25N_34.35E,37.244,34.29,46.1,False,False
+Ay LOLA 40 m,Moon_Shackleton,Genel,SCAN_39.75N_39.75E,39.743,39.689,44.9,SCAN_39.75N_39.75E,39.743,39.689,44.9,False,False
+Ay LOLA 40 m,Moon_deGerlache,Genel,Hawaii_MaunaKea,19.806,-155.502,55.9,SCAN_38.25N_43.55E,38.298,43.556,40.3,False,False
+Ay LOLA 40 m,Moon_Malapert,İniş,Hawaii_MaunaKea,19.806,-155.502,41.4,SCAN_38.25N_43.55E,38.298,43.556,34.8,False,True
+Ay LOLA 40 m,Moon_Shackleton,İniş,SCAN_39.75N_39.75E,39.797,39.69,32.9,SCAN_39.75N_39.75E,39.797,39.69,32.9,True,True
+Ay LOLA 40 m,Moon_deGerlache,İniş,Hawaii_MaunaKea,19.806,-155.502,41.1,SCAN_38.25N_43.55E,38.243,43.489,30.8,False,True
+Ay LOLA 40 m,Moon_Malapert,Rover,Hawaii_MaunaKea,19.806,-155.502,42.2,SCAN_38.25N_43.55E,38.298,43.556,34.7,False,True
+Ay LOLA 40 m,Moon_Shackleton,Rover,SCAN_39.75N_39.75E,39.797,39.69,33.9,SCAN_39.75N_39.75E,39.797,39.69,33.9,True,True
+Ay LOLA 40 m,Moon_deGerlache,Rover,Hawaii_MaunaKea,19.806,-155.502,41.9,SCAN_38.25N_43.55E,38.243,43.489,30.7,False,True
+Ay LOLA 40 m,Moon_Malapert,Üs,Hawaii_MaunaKea,19.806,-155.502,54.2,SCAN_37.25N_34.35E,37.296,34.426,44.0,False,True
+Ay LOLA 40 m,Moon_Shackleton,Üs,SCAN_39.75N_39.75E,39.743,39.689,39.1,SCAN_39.75N_39.75E,39.743,39.689,39.1,False,False
+Ay LOLA 40 m,Moon_deGerlache,Üs,Hawaii_MaunaKea,19.806,-155.502,56.2,SCAN_37.25N_34.35E,37.243,34.358,38.2,False,True
+Ay LOLA 40 m,Moon_Malapert,Sondaj,Hawaii_MaunaKea,19.806,-155.502,42.9,SCAN_37.25N_34.35E,37.244,34.29,38.6,False,False
+Ay LOLA 40 m,Moon_Shackleton,Sondaj,SCAN_39.75N_39.75E,39.743,39.689,36.6,SCAN_39.75N_39.75E,39.743,39.689,36.6,False,False
+Ay LOLA 40 m,Moon_deGerlache,Sondaj,Hawaii_MaunaKea,19.806,-155.502,43.2,SCAN_37.25N_34.35E,37.296,34.426,35.2,False,True
+Mars HRSC_MOLA_200m,Mars_Gale_Curiosity,Genel,DeathValley,36.187,-116.877,93.7,SCAN_39.85N_44.45E,39.788,44.53,72.3,False,False
+Mars HRSC_MOLA_200m,Mars_Gusev_Spirit,Genel,Haughton,75.328,-89.459,90.1,SCAN_37.05N_34.05E,37.097,34.059,61.1,False,False
+Mars HRSC_MOLA_200m,Mars_Jezero,Genel,Iceland_Holuhraun,64.919,-16.953,95.7,SCAN_40.05N_43.85E,39.989,43.859,71.8,False,False
+Mars HRSC_MOLA_200m,Mars_Meridiani_Oppy,Genel,Iceland_Holuhraun,64.919,-16.953,85.2,SCAN_38.55N_33.65E,38.542,33.66,77.2,False,False
+Mars HRSC_MOLA_200m,Mars_Gale_Curiosity,İniş,DeathValley,36.187,-116.877,94.6,SCAN_39.85N_44.45E,39.788,44.53,68.0,False,False
+Mars HRSC_MOLA_200m,Mars_Gusev_Spirit,İniş,Haughton,75.433,-89.69,86.2,SCAN_39.85N_44.45E,39.788,44.53,55.8,True,True
+Mars HRSC_MOLA_200m,Mars_Jezero,İniş,Iceland_Holuhraun,64.919,-16.953,95.6,SCAN_38.55N_33.65E,38.542,33.66,67.7,False,True
+Mars HRSC_MOLA_200m,Mars_Meridiani_Oppy,İniş,Iceland_Holuhraun,64.867,-16.823,85.9,SCAN_38.55N_33.65E,38.542,33.66,75.9,True,False
+Mars HRSC_MOLA_200m,Mars_Gale_Curiosity,Rover,DeathValley,36.187,-116.877,93.8,SCAN_39.85N_44.45E,39.788,44.53,67.5,False,False
+Mars HRSC_MOLA_200m,Mars_Gusev_Spirit,Rover,Haughton,75.328,-89.459,87.2,SCAN_39.85N_44.45E,39.788,44.53,55.0,False,True
+Mars HRSC_MOLA_200m,Mars_Jezero,Rover,Iceland_Holuhraun,64.919,-16.953,96.0,SCAN_38.55N_33.65E,38.542,33.66,68.5,False,True
+Mars HRSC_MOLA_200m,Mars_Meridiani_Oppy,Rover,Iceland_Holuhraun,64.867,-16.823,85.6,SCAN_38.55N_33.65E,38.542,33.66,75.6,True,False
+Mars HRSC_MOLA_200m,Mars_Gale_Curiosity,Üs,DeathValley,36.187,-116.877,90.3,SCAN_39.85N_44.45E,39.788,44.53,66.1,False,False
+Mars HRSC_MOLA_200m,Mars_Gusev_Spirit,Üs,Haughton,75.326,-89.671,88.0,SCAN_37.05N_34.05E,37.097,34.059,55.5,True,False
+Mars HRSC_MOLA_200m,Mars_Jezero,Üs,Iceland_Holuhraun,64.919,-16.953,93.3,SCAN_40.05N_43.85E,39.989,43.859,66.1,False,False
+Mars HRSC_MOLA_200m,Mars_Meridiani_Oppy,Üs,Iceland_Holuhraun,64.919,-16.953,78.6,SCAN_38.55N_33.65E,38.542,33.66,68.6,False,False
+Mars HRSC_MOLA_200m,Mars_Gale_Curiosity,Sondaj,DeathValley,36.187,-116.877,94.5,SCAN_38.55N_33.65E,38.596,33.66,68.0,False,True
+Mars HRSC_MOLA_200m,Mars_Gusev_Spirit,Sondaj,Iceland_Holuhraun,64.919,-16.953,79.3,SCAN_40.05N_43.85E,39.989,43.859,60.9,True,True
+Mars HRSC_MOLA_200m,Mars_Jezero,Sondaj,Haughton,75.377,-89.893,87.2,SCAN_38.55N_33.65E,38.542,33.66,73.9,True,True
+Mars HRSC_MOLA_200m,Mars_Meridiani_Oppy,Sondaj,Iceland_Holuhraun,64.919,-16.953,52.7,SCAN_38.55N_33.65E,38.542,33.66,51.2,False,False
+Mars MOLA_463m,Mars_Gale_Curiosity,Genel,DeathValley,36.202,-116.884,86.0,SCAN_39.85N_44.45E,39.803,44.511,70.5,False,False
+Mars MOLA_463m,Mars_Gusev_Spirit,Genel,Iceland_Holuhraun,64.879,-16.614,89.8,SCAN_38.55N_33.65E,38.453,33.582,86.5,False,False
+Mars MOLA_463m,Mars_Jezero,Genel,Iceland_Holuhraun,64.827,-16.844,97.8,SCAN_39.85N_44.45E,39.753,44.576,75.6,False,False
+Mars MOLA_463m,Mars_Meridiani_Oppy,Genel,Iceland_Holuhraun,64.878,-16.731,85.5,SCAN_38.55N_33.65E,38.453,33.582,83.0,False,False
+Mars MOLA_463m,Mars_Gale_Curiosity,İniş,DeathValley,36.352,-116.884,85.8,SCAN_39.85N_44.45E,39.803,44.511,65.2,True,False
+Mars MOLA_463m,Mars_Gusev_Spirit,İniş,Iceland_Holuhraun,64.879,-16.614,91.7,SCAN_38.55N_33.65E,38.453,33.582,86.0,False,False
+Mars MOLA_463m,Mars_Jezero,İniş,Iceland_Holuhraun,64.827,-16.844,97.9,SCAN_39.85N_44.45E,39.753,44.576,70.7,False,False
+Mars MOLA_463m,Mars_Meridiani_Oppy,İniş,Iceland_Holuhraun,64.878,-16.731,88.0,SCAN_38.55N_33.65E,38.453,33.582,84.5,False,False
+Mars MOLA_463m,Mars_Gale_Curiosity,Rover,DeathValley,36.352,-116.884,83.2,SCAN_39.85N_44.45E,39.803,44.511,64.4,True,False
+Mars MOLA_463m,Mars_Gusev_Spirit,Rover,Iceland_Holuhraun,64.879,-16.614,91.7,SCAN_38.55N_33.65E,38.453,33.582,85.8,False,False
+Mars MOLA_463m,Mars_Jezero,Rover,Iceland_Holuhraun,64.827,-16.844,97.4,SCAN_39.85N_44.45E,39.753,44.576,70.8,False,False
+Mars MOLA_463m,Mars_Meridiani_Oppy,Rover,Iceland_Holuhraun,64.878,-16.731,88.1,SCAN_38.55N_33.65E,38.453,33.582,84.6,False,False
+Mars MOLA_463m,Mars_Gale_Curiosity,Üs,DeathValley,36.252,-116.884,82.7,SCAN_39.85N_44.45E,39.852,44.446,65.5,True,True
+Mars MOLA_463m,Mars_Gusev_Spirit,Üs,Iceland_Holuhraun,64.876,-16.848,85.5,SCAN_38.55N_33.65E,38.552,33.647,81.1,True,True
+Mars MOLA_463m,Mars_Jezero,Üs,Iceland_Holuhraun,64.827,-16.844,96.9,SCAN_39.85N_44.45E,39.753,44.576,71.0,False,False
+Mars MOLA_463m,Mars_Meridiani_Oppy,Üs,Iceland_Holuhraun,64.878,-16.731,77.2,SCAN_38.55N_33.65E,38.453,33.582,74.4,False,False
+Mars MOLA_463m,Mars_Gale_Curiosity,Sondaj,DeathValley,36.202,-116.884,87.8,SCAN_37.65N_33.65E,37.652,33.772,66.2,False,True
+Mars MOLA_463m,Mars_Gusev_Spirit,Sondaj,Iceland_Holuhraun,64.879,-16.614,91.2,SCAN_40.05N_43.85E,40.003,43.845,68.7,False,True
+Mars MOLA_463m,Mars_Jezero,Sondaj,DeathValley,36.252,-116.884,85.1,SCAN_38.55N_33.65E,38.453,33.519,73.4,True,True
+Mars MOLA_463m,Mars_Meridiani_Oppy,Sondaj,Iceland_Holuhraun,64.878,-16.731,52.7,SCAN_38.55N_33.65E,38.453,33.582,52.2,False,False

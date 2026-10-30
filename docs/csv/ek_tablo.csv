@@ -1,0 +1,26 @@
+target,taraf,site,lat,lon,zemin,buz_permafrost,kaynak
+Moon_Shackleton,hedef,Moon_Shackleton,,,bu tabloda yok,İç duvarlarda radar verisi az miktarda buzla uyumlu; üst sınır ağırlıkça %5-10 (LRO Mini-RF),"-; Astronomy, 4 Eylül 2012"
+Moon_Shackleton,ikiz takımı,SCAN_39.75N_39.75E,39.797,39.69,"kum 48%, kil 18%, iri parça 25%, hacim ağırlığı 1.09 g/cm³",ID=78188 | GRIDCODE=1 | EXTENT=Isol,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Moon_Shackleton,ikiz takımı,Atacama_Yungay,-24.162,-70.052,"kum 64%, kil 13%, iri parça 27%, hacim ağırlığı 1.34 g/cm³",kapsam dışı (Güney Yarımküre),ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Moon_Shackleton,Türkiye en iyi,SCAN_39.75N_39.75E,39.743,39.689,"kum 36%, kil 26%, iri parça 32%, hacim ağırlığı 1.19 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Moon_deGerlache,hedef,Moon_deGerlache,,,bu tabloda yok,"Merkezinde büyük kalıcı gölge bölgesi; yüzey buzunun kraterin yaklaşık %2,3'ünü kaplıyor olabileceği tahmini","-; Umansky vd., LPSC (de Gerlache)"
+Moon_deGerlache,ikiz takımı,Hawaii_MaunaKea,19.806,-155.502,"kum 48%, kil 22%, iri parça 25%, hacim ağırlığı 1.20 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Moon_deGerlache,ikiz takımı,SCAN_37.25N_34.35E,37.19,34.289,"kum 38%, kil 28%, iri parça 27%, hacim ağırlığı 1.26 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Moon_deGerlache,ikiz takımı,Atacama_Yungay,-24.054,-70.051,"kum 64%, kil 13%, iri parça 30%, hacim ağırlığı 1.32 g/cm³",kapsam dışı (Güney Yarımküre),ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Moon_deGerlache,Türkiye en iyi,SCAN_38.25N_43.55E,38.298,43.556,"kum 37%, kil 24%, iri parça 27%, hacim ağırlığı 1.26 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Moon_Malapert,hedef,Moon_Malapert,,,bu tabloda yok,Doğrudan buz ölçümü kaynağı bulunamadı; Artemis III aday bölgeleri kalıcı gölge bölgelerine yakın seçildi,"-; NASA, 19 Ağustos 2022"
+Moon_Malapert,ikiz takımı,Hawaii_MaunaKea,19.806,-155.502,"kum 48%, kil 22%, iri parça 25%, hacim ağırlığı 1.20 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Moon_Malapert,ikiz takımı,SCAN_37.25N_34.35E,37.19,34.289,"kum 38%, kil 28%, iri parça 27%, hacim ağırlığı 1.26 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Moon_Malapert,Türkiye en iyi,SCAN_37.25N_34.35E,37.244,34.29,"kum 45%, kil 18%, iri parça 26%, hacim ağırlığı 1.17 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Mars_Gusev_Spirit,hedef,Mars_Gusev_Spirit,,,"Termal eylemsizlik 315 (TES, iniş alanı)","Yüzeye yakın buz Mars'ın orta enlemlerinde ve kutuplarında (NASA/JPL, 10 Aralık 2019); hedef ekvatora yakın (14.6°) ve bu kaynakta buz bölgesi olarak geçmiyor.","Golombek vd. 2005, LPSC XXXVI, 1542; NASA/JPL 2019"
+Mars_Gusev_Spirit,ikiz takımı,Haughton,75.433,-89.69,"kum 34%, kil 27%, iri parça 17%, hacim ağırlığı 0.85 g/cm³",ID=49623 | GRIDCODE=4 | EXTENT=Cont,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Mars_Gusev_Spirit,Türkiye en iyi,SCAN_37.05N_34.05E,37.097,34.059,"kum 41%, kil 21%, iri parça 21%, hacim ağırlığı 1.25 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Mars_Jezero,hedef,Mars_Jezero,,,Termal eylemsizlik mozaik ortancası 244 (aralık p10-p90: 169-357),"Yüzeye yakın buz Mars'ın orta enlemlerinde ve kutuplarında (NASA/JPL, 10 Aralık 2019); hedef ekvatora yakın (18.4°) ve bu kaynakta buz bölgesi olarak geçmiyor.","Edwards & Buz 2021, Zenodo 4931348; NASA/JPL 2019"
+Mars_Jezero,ikiz takımı,Iceland_Holuhraun,64.919,-16.953,"kum 56%, kil 12%, iri parça 8%, hacim ağırlığı 0.71 g/cm³",ID=76828 | GRIDCODE=2 | EXTENT=Spora,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Mars_Jezero,Türkiye en iyi,SCAN_40.05N_43.85E,39.989,43.859,"kum 31%, kil 30%, iri parça 10%, hacim ağırlığı 1.40 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Mars_Gale_Curiosity,hedef,Mars_Gale_Curiosity,,,Termal eylemsizlik 250-410 (iniş alanının çoğu; sertleşmiş yüzey + gevşek malzeme),"Yüzeye yakın buz Mars'ın orta enlemlerinde ve kutuplarında (NASA/JPL, 10 Aralık 2019); hedef ekvatora yakın (4.6°) ve bu kaynakta buz bölgesi olarak geçmiyor.","Fergason vd. 2012, Space Sci. Rev. 170; NASA/JPL 2019"
+Mars_Gale_Curiosity,ikiz takımı,DeathValley,36.187,-116.877,"kum 37%, kil 30%, iri parça 29%, hacim ağırlığı 1.33 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Mars_Gale_Curiosity,Türkiye en iyi,SCAN_39.85N_44.45E,39.788,44.53,"kum 31%, kil 30%, iri parça 16%, hacim ağırlığı 1.38 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Mars_Meridiani_Oppy,hedef,Mars_Meridiani_Oppy,,,"Termal eylemsizlik 200 (TES) / 190 (THEMIS), iniş alanı","Yüzeye yakın buz Mars'ın orta enlemlerinde ve kutuplarında (NASA/JPL, 10 Aralık 2019); hedef ekvatora yakın (1.9°) ve bu kaynakta buz bölgesi olarak geçmiyor.","Golombek vd. 2005, LPSC XXXVI, 1542; NASA/JPL 2019"
+Mars_Meridiani_Oppy,ikiz takımı,SCAN_38.55N_33.15E,38.541,33.16,"kum 20%, kil 35%, iri parça 7%, hacim ağırlığı 1.37 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)
+Mars_Meridiani_Oppy,Türkiye en iyi,SCAN_38.55N_33.65E,38.542,33.66,"kum 18%, kil 38%, iri parça 7%, hacim ağırlığı 1.39 g/cm³",yok,ISRIC SoilGrids 2.0; Obu vd. 2019 (PANGAEA)

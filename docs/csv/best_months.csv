@@ -1,0 +1,14 @@
+site,group,en_iyi_ay,uygun_aylar,en_iyi_ay_sicaklik_C,en_iyi_ay_yagis_mm_gun,not
+SCAN_39.75N_39.75E,scan,Eyl,"Tem, Ağu, Eyl",14.9,0.96,
+Atacama_Yungay,known,Tem,"Oca, Şub, Mar, Nis, May, Haz, Tem, Ağu, Eyl, Eki, Kas, Ara",14.0,0.02,
+Hawaii_MaunaKea,known,Haz,"Haz, Tem, Eyl",21.4,3.08,
+SCAN_37.25N_34.35E,scan,Eki,"Haz, Tem, Ağu, Eyl, Eki",12.4,0.87,
+Haughton,known,Tem,Tem,5.9,1.63,hiç karsız ay yok; en az karlı aylar kullanıldı
+Iceland_Holuhraun,known,Ağu,"Tem, Ağu",2.3,2.4,hiç karsız ay yok; en az karlı aylar kullanıldı
+DeathValley,known,Kas,"Mar, Nis, May, Haz, Tem, Ağu, Eyl, Eki, Kas",12.3,0.27,
+SCAN_38.55N_33.15E,scan,Eki,"Tem, Ağu, Eyl, Eki",14.0,0.91,
+SCAN_38.55N_33.65E,scan,Eki,"Tem, Ağu, Eyl, Eki",14.1,0.88,
+SCAN_39.85N_44.45E,scan,Eyl,"Tem, Ağu, Eyl",22.0,0.61,
+SCAN_40.05N_43.85E,scan,Eyl,"Ağu, Eyl",19.7,0.66,
+SCAN_37.05N_34.05E,scan,Eyl,"Haz, Tem, Ağu, Eyl",17.0,0.51,
+SCAN_38.25N_43.55E,scan,Eyl,"Haz, Tem, Ağu, Eyl",15.6,0.37,

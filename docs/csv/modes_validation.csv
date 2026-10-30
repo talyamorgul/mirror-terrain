@@ -1,0 +1,56 @@
+veri,mod,target,ilk20_bilinen_%,AUC
+Ay LOLA 40 m,Genel,Moon_Malapert,100.0,0.85
+Ay LOLA 40 m,Genel,Moon_Shackleton,100.0,0.85
+Ay LOLA 40 m,Genel,Moon_deGerlache,100.0,0.86
+Ay LOLA 40 m,İniş,Moon_Malapert,85.0,0.84
+Ay LOLA 40 m,İniş,Moon_Shackleton,85.0,0.83
+Ay LOLA 40 m,İniş,Moon_deGerlache,95.0,0.84
+Ay LOLA 40 m,Rover,Moon_Malapert,90.0,0.84
+Ay LOLA 40 m,Rover,Moon_Shackleton,95.0,0.84
+Ay LOLA 40 m,Rover,Moon_deGerlache,90.0,0.84
+Ay LOLA 40 m,Üs,Moon_Malapert,100.0,0.86
+Ay LOLA 40 m,Üs,Moon_Shackleton,100.0,0.86
+Ay LOLA 40 m,Üs,Moon_deGerlache,100.0,0.87
+Ay LOLA 40 m,Sondaj,Moon_Malapert,100.0,0.88
+Ay LOLA 40 m,Sondaj,Moon_Shackleton,100.0,0.86
+Ay LOLA 40 m,Sondaj,Moon_deGerlache,100.0,0.89
+Mars HRSC_MOLA_200m,Genel,Mars_Gale_Curiosity,100.0,0.68
+Mars HRSC_MOLA_200m,Genel,Mars_Gusev_Spirit,100.0,0.67
+Mars HRSC_MOLA_200m,Genel,Mars_Jezero,100.0,0.67
+Mars HRSC_MOLA_200m,Genel,Mars_Meridiani_Oppy,100.0,0.64
+Mars HRSC_MOLA_200m,İniş,Mars_Gale_Curiosity,100.0,0.68
+Mars HRSC_MOLA_200m,İniş,Mars_Gusev_Spirit,100.0,0.68
+Mars HRSC_MOLA_200m,İniş,Mars_Jezero,100.0,0.67
+Mars HRSC_MOLA_200m,İniş,Mars_Meridiani_Oppy,100.0,0.64
+Mars HRSC_MOLA_200m,Rover,Mars_Gale_Curiosity,100.0,0.68
+Mars HRSC_MOLA_200m,Rover,Mars_Gusev_Spirit,100.0,0.68
+Mars HRSC_MOLA_200m,Rover,Mars_Jezero,100.0,0.67
+Mars HRSC_MOLA_200m,Rover,Mars_Meridiani_Oppy,100.0,0.64
+Mars HRSC_MOLA_200m,Üs,Mars_Gale_Curiosity,100.0,0.7
+Mars HRSC_MOLA_200m,Üs,Mars_Gusev_Spirit,100.0,0.66
+Mars HRSC_MOLA_200m,Üs,Mars_Jezero,100.0,0.66
+Mars HRSC_MOLA_200m,Üs,Mars_Meridiani_Oppy,100.0,0.61
+Mars HRSC_MOLA_200m,Sondaj,Mars_Gale_Curiosity,100.0,0.69
+Mars HRSC_MOLA_200m,Sondaj,Mars_Gusev_Spirit,100.0,0.7
+Mars HRSC_MOLA_200m,Sondaj,Mars_Jezero,100.0,0.67
+Mars HRSC_MOLA_200m,Sondaj,Mars_Meridiani_Oppy,100.0,0.66
+Mars MOLA_463m,Genel,Mars_Gale_Curiosity,100.0,0.69
+Mars MOLA_463m,Genel,Mars_Gusev_Spirit,100.0,0.62
+Mars MOLA_463m,Genel,Mars_Jezero,100.0,0.64
+Mars MOLA_463m,Genel,Mars_Meridiani_Oppy,100.0,0.6
+Mars MOLA_463m,İniş,Mars_Gale_Curiosity,100.0,0.67
+Mars MOLA_463m,İniş,Mars_Gusev_Spirit,100.0,0.62
+Mars MOLA_463m,İniş,Mars_Jezero,100.0,0.64
+Mars MOLA_463m,İniş,Mars_Meridiani_Oppy,100.0,0.6
+Mars MOLA_463m,Rover,Mars_Gale_Curiosity,100.0,0.68
+Mars MOLA_463m,Rover,Mars_Gusev_Spirit,100.0,0.62
+Mars MOLA_463m,Rover,Mars_Jezero,100.0,0.64
+Mars MOLA_463m,Rover,Mars_Meridiani_Oppy,100.0,0.6
+Mars MOLA_463m,Üs,Mars_Gale_Curiosity,100.0,0.7
+Mars MOLA_463m,Üs,Mars_Gusev_Spirit,100.0,0.61
+Mars MOLA_463m,Üs,Mars_Jezero,100.0,0.65
+Mars MOLA_463m,Üs,Mars_Meridiani_Oppy,100.0,0.58
+Mars MOLA_463m,Sondaj,Mars_Gale_Curiosity,100.0,0.67
+Mars MOLA_463m,Sondaj,Mars_Gusev_Spirit,100.0,0.66
+Mars MOLA_463m,Sondaj,Mars_Jezero,100.0,0.64
+Mars MOLA_463m,Sondaj,Mars_Meridiani_Oppy,100.0,0.63

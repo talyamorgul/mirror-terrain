@@ -1,0 +1,29 @@
+veri,target,mod,oncelikli_ozellikler,takim,alan_sayisi,kapsama_%,karsilanamayan
+Ay LOLA 40 m,Moon_Shackleton,İniş,"ortalama eğim, 15°+ dik alan oranı, pürüzlülük, çoraklık","SCAN_38.15N_42.95E (38.197, 42.886) + Hawaii_MaunaKea (19.806, -155.502)",2,100,-
+Ay LOLA 40 m,Moon_deGerlache,İniş,"ortalama eğim, 15°+ dik alan oranı, pürüzlülük, çoraklık","Svalbard_Bockfjorden (79.375, 13.639) + Atacama_Yungay (-24.108, -70.051)",2,100,-
+Ay LOLA 40 m,Moon_Malapert,İniş,"ortalama eğim, 15°+ dik alan oranı, pürüzlülük, çoraklık","Svalbard_Bockfjorden (79.375, 13.639) + Hawaii_MaunaKea (19.806, -155.502)",2,100,-
+Ay LOLA 40 m,Moon_Shackleton,Rover,"dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, çoraklık","SCAN_39.75N_39.75E (39.797, 39.69) + Atacama_Yungay (-24.162, -70.052)",2,100,-
+Ay LOLA 40 m,Moon_deGerlache,Rover,"dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, çoraklık","Atacama_Yungay (-24.055, -69.933) + SCAN_37.25N_34.35E (37.298, 34.291)",2,100,-
+Ay LOLA 40 m,Moon_Malapert,Rover,"dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, çoraklık","Hawaii_MaunaKea (19.806, -155.502) + SCAN_37.25N_34.35E (37.298, 34.291)",2,100,-
+Ay LOLA 40 m,Moon_Shackleton,Üs,"rölyef, hipsometri, ortalama eğim, çoraklık","DeathValley (36.187, -116.743) + SCAN_37.35N_34.65E (37.399, 34.591)",2,75,rölyef
+Ay LOLA 40 m,Moon_deGerlache,Üs,"rölyef, hipsometri, ortalama eğim, çoraklık","Hawaii_MaunaKea (19.806, -155.502)",1,100,-
+Ay LOLA 40 m,Moon_Malapert,Üs,"rölyef, hipsometri, ortalama eğim, çoraklık","Hawaii_MaunaKea (19.806, -155.502)",1,100,-
+Ay LOLA 40 m,Moon_Shackleton,Sondaj,"kayaç ailesi, çoraklık","Haughton (75.379, -89.681)",1,100,-
+Ay LOLA 40 m,Moon_deGerlache,Sondaj,"kayaç ailesi, çoraklık","Haughton (75.379, -89.681)",1,100,-
+Ay LOLA 40 m,Moon_Malapert,Sondaj,"kayaç ailesi, çoraklık","Haughton (75.379, -89.681)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Gusev_Spirit,İniş,"ortalama eğim, 15°+ dik alan oranı, pürüzlülük, çoraklık","Atacama_Yungay (-24.109, -69.933)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Jezero,İniş,"ortalama eğim, 15°+ dik alan oranı, pürüzlülük, çoraklık","Haughton (75.431, -89.904)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Gale_Curiosity,İniş,"ortalama eğim, 15°+ dik alan oranı, pürüzlülük, çoraklık","DeathValley (36.187, -116.877)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Meridiani_Oppy,İniş,"ortalama eğim, 15°+ dik alan oranı, pürüzlülük, çoraklık","Iceland_Holuhraun (64.867, -16.823)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Gusev_Spirit,Rover,"dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, çoraklık","Atacama_Yungay (-24.109, -69.933)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Jezero,Rover,"dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, çoraklık","Haughton (75.431, -89.904)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Gale_Curiosity,Rover,"dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, çoraklık","DeathValley (36.187, -116.877)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Meridiani_Oppy,Rover,"dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, çoraklık","Iceland_Holuhraun (64.814, -16.693)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Gusev_Spirit,Üs,"rölyef, hipsometri, ortalama eğim, çoraklık","Haughton (75.433, -89.69)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Jezero,Üs,"rölyef, hipsometri, ortalama eğim, çoraklık","Iceland_Holuhraun (64.919, -16.953)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Gale_Curiosity,Üs,"rölyef, hipsometri, ortalama eğim, çoraklık","DeathValley (36.241, -116.877)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Meridiani_Oppy,Üs,"rölyef, hipsometri, ortalama eğim, çoraklık","Haughton (75.379, -89.681)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Gusev_Spirit,Sondaj,"kayaç ailesi, çoraklık","Iceland_Holuhraun (64.919, -16.953)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Jezero,Sondaj,"kayaç ailesi, çoraklık","Haughton (75.382, -89.468)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Gale_Curiosity,Sondaj,"kayaç ailesi, çoraklık","Haughton (75.382, -89.468)",1,100,-
+Mars HRSC_MOLA_200m,Mars_Meridiani_Oppy,Sondaj,"kayaç ailesi, çoraklık","Iceland_Holuhraun (64.919, -16.953)",1,50,kayaç ailesi

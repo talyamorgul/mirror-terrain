@@ -1,0 +1,23 @@
+veri,katmanlar,target,ilk20_bilinen_%,AUC
+Ay LOLA 40 m,arazi + çoraklık,Moon_Malapert,100.0,0.85
+Ay LOLA 40 m,arazi + çoraklık,Moon_Shackleton,100.0,0.85
+Ay LOLA 40 m,arazi + çoraklık,Moon_deGerlache,100.0,0.86
+Ay LOLA 40 m,sadece arazi,Moon_Malapert,80.0,0.75
+Ay LOLA 40 m,sadece arazi,Moon_Shackleton,95.0,0.78
+Ay LOLA 40 m,sadece arazi,Moon_deGerlache,85.0,0.78
+Mars HRSC_MOLA_200m,arazi + çoraklık,Mars_Gale_Curiosity,100.0,0.68
+Mars HRSC_MOLA_200m,arazi + çoraklık,Mars_Gusev_Spirit,100.0,0.67
+Mars HRSC_MOLA_200m,arazi + çoraklık,Mars_Jezero,100.0,0.67
+Mars HRSC_MOLA_200m,arazi + çoraklık,Mars_Meridiani_Oppy,100.0,0.64
+Mars HRSC_MOLA_200m,sadece arazi,Mars_Gale_Curiosity,100.0,0.55
+Mars HRSC_MOLA_200m,sadece arazi,Mars_Gusev_Spirit,95.0,0.53
+Mars HRSC_MOLA_200m,sadece arazi,Mars_Jezero,100.0,0.46
+Mars HRSC_MOLA_200m,sadece arazi,Mars_Meridiani_Oppy,30.0,0.23
+Mars MOLA_463m,arazi + çoraklık,Mars_Gale_Curiosity,100.0,0.69
+Mars MOLA_463m,arazi + çoraklık,Mars_Gusev_Spirit,100.0,0.62
+Mars MOLA_463m,arazi + çoraklık,Mars_Jezero,100.0,0.64
+Mars MOLA_463m,arazi + çoraklık,Mars_Meridiani_Oppy,100.0,0.6
+Mars MOLA_463m,sadece arazi,Mars_Gale_Curiosity,100.0,0.58
+Mars MOLA_463m,sadece arazi,Mars_Gusev_Spirit,15.0,0.22
+Mars MOLA_463m,sadece arazi,Mars_Jezero,95.0,0.51
+Mars MOLA_463m,sadece arazi,Mars_Meridiani_Oppy,5.0,0.21

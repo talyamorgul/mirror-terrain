@@ -1,0 +1,8 @@
+site,body,unit,unit_desc,rock_family,tam_icinde,harita_aile,duzeltme,aile
+Mars_Gusev_Spirit,Mars,eHv,Early Hesperian volcanic unit,volcanic,True,volkanik,,volkanik
+Mars_Jezero,Mars,HNt,Hesperian and Noachian transition unit,sedimentary,True,tortul,,tortul
+Mars_Gale_Curiosity,Mars,AHi,Amazonian and Hesperian impact unit,sedimentary,True,çarpma,"Harita: çarpma birimi (1:20 milyon ölçekte kraterin tamamı). Curiosity'nin incelediği katmanlar tortul: kil ve sülfat içeren katmanlar (JPL, 17 Ağustos 2021).",tortul
+Mars_Meridiani_Oppy,Mars,HNhu,Hesperian and Noachian highland undivided unit,mixed_highland,True,karışık yüksek arazi,,karışık yüksek arazi
+Moon_Shackleton,Moon,Ec | Eratosthenian | Crater Unit,Ec | Eratosthenian | Crater Unit,impact,True,çarpma,,çarpma
+Moon_deGerlache,Moon,Nc | Nectarian | Crater Unit,Nc | Nectarian | Crater Unit,impact,True,çarpma,,çarpma
+Moon_Malapert,Moon,pNbm | Pre-Nectarian | Basin Massif Unit,pNbm | Pre-Nectarian | Basin Massif Unit,impact,True,çarpma,,çarpma

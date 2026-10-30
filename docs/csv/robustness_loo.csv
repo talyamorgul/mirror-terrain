@@ -1,0 +1,50 @@
+veri,disarida_birakilan,target,ust_yuzde,AUC_kalanlarla
+Ay LOLA 40 m,Atacama_Yungay,Moon_Malapert,2.1,0.86
+Ay LOLA 40 m,Atacama_Yungay,Moon_Shackleton,24.8,0.86
+Ay LOLA 40 m,Atacama_Yungay,Moon_deGerlache,1.7,0.87
+Ay LOLA 40 m,DeathValley,Moon_Malapert,0.2,0.83
+Ay LOLA 40 m,DeathValley,Moon_Shackleton,6.4,0.83
+Ay LOLA 40 m,DeathValley,Moon_deGerlache,0.5,0.84
+Ay LOLA 40 m,Haughton,Moon_Malapert,26.3,0.87
+Ay LOLA 40 m,Haughton,Moon_Shackleton,48.4,0.86
+Ay LOLA 40 m,Haughton,Moon_deGerlache,27.0,0.88
+Ay LOLA 40 m,Hawaii_MaunaKea,Moon_Malapert,0.0,0.85
+Ay LOLA 40 m,Hawaii_MaunaKea,Moon_Shackleton,4.7,0.85
+Ay LOLA 40 m,Hawaii_MaunaKea,Moon_deGerlache,0.0,0.85
+Ay LOLA 40 m,Iceland_Holuhraun,Moon_Malapert,63.6,0.88
+Ay LOLA 40 m,Iceland_Holuhraun,Moon_Shackleton,69.0,0.87
+Ay LOLA 40 m,Iceland_Holuhraun,Moon_deGerlache,61.5,0.89
+Ay LOLA 40 m,MeteorCrater,Moon_Malapert,72.1,0.89
+Ay LOLA 40 m,MeteorCrater,Moon_Shackleton,76.4,0.88
+Ay LOLA 40 m,MeteorCrater,Moon_deGerlache,72.1,0.9
+Ay LOLA 40 m,Svalbard_Bockfjorden,Moon_Malapert,5.8,0.84
+Ay LOLA 40 m,Svalbard_Bockfjorden,Moon_Shackleton,16.1,0.84
+Ay LOLA 40 m,Svalbard_Bockfjorden,Moon_deGerlache,7.0,0.85
+Mars HRSC_MOLA_200m,Atacama_Yungay,Mars_Gale_Curiosity,1.9,0.64
+Mars HRSC_MOLA_200m,Atacama_Yungay,Mars_Gusev_Spirit,1.0,0.62
+Mars HRSC_MOLA_200m,Atacama_Yungay,Mars_Jezero,2.2,0.62
+Mars HRSC_MOLA_200m,Atacama_Yungay,Mars_Meridiani_Oppy,4.8,0.61
+Mars HRSC_MOLA_200m,DeathValley,Mars_Gale_Curiosity,0.0,0.79
+Mars HRSC_MOLA_200m,DeathValley,Mars_Gusev_Spirit,5.6,0.77
+Mars HRSC_MOLA_200m,DeathValley,Mars_Jezero,3.9,0.75
+Mars HRSC_MOLA_200m,DeathValley,Mars_Meridiani_Oppy,10.0,0.7
+Mars HRSC_MOLA_200m,Haughton,Mars_Gale_Curiosity,7.2,0.64
+Mars HRSC_MOLA_200m,Haughton,Mars_Gusev_Spirit,0.0,0.62
+Mars HRSC_MOLA_200m,Haughton,Mars_Jezero,1.0,0.63
+Mars HRSC_MOLA_200m,Haughton,Mars_Meridiani_Oppy,0.2,0.6
+Mars HRSC_MOLA_200m,Hawaii_MaunaKea,Mars_Gale_Curiosity,5.3,0.73
+Mars HRSC_MOLA_200m,Hawaii_MaunaKea,Mars_Gusev_Spirit,21.0,0.72
+Mars HRSC_MOLA_200m,Hawaii_MaunaKea,Mars_Jezero,18.1,0.72
+Mars HRSC_MOLA_200m,Hawaii_MaunaKea,Mars_Meridiani_Oppy,40.1,0.69
+Mars HRSC_MOLA_200m,Iceland_Holuhraun,Mars_Gale_Curiosity,1.0,0.64
+Mars HRSC_MOLA_200m,Iceland_Holuhraun,Mars_Gusev_Spirit,3.1,0.62
+Mars HRSC_MOLA_200m,Iceland_Holuhraun,Mars_Jezero,0.0,0.63
+Mars HRSC_MOLA_200m,Iceland_Holuhraun,Mars_Meridiani_Oppy,0.0,0.6
+Mars HRSC_MOLA_200m,MeteorCrater,Mars_Gale_Curiosity,15.3,0.61
+Mars HRSC_MOLA_200m,MeteorCrater,Mars_Gusev_Spirit,8.7,0.58
+Mars HRSC_MOLA_200m,MeteorCrater,Mars_Jezero,8.0,0.59
+Mars HRSC_MOLA_200m,MeteorCrater,Mars_Meridiani_Oppy,5.8,0.56
+Mars HRSC_MOLA_200m,Svalbard_Bockfjorden,Mars_Gale_Curiosity,73.2,0.74
+Mars HRSC_MOLA_200m,Svalbard_Bockfjorden,Mars_Gusev_Spirit,73.0,0.72
+Mars HRSC_MOLA_200m,Svalbard_Bockfjorden,Mars_Jezero,73.2,0.72
+Mars HRSC_MOLA_200m,Svalbard_Bockfjorden,Mars_Meridiani_Oppy,73.0,0.68

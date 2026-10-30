@@ -1,0 +1,12 @@
+target,sira,site,group,lat,lon,karsiladigi,kapsama_%,dunyada_karsilanamayan
+Moon_Shackleton,1,SCAN_39.75N_39.75E,scan,39.797,39.69,"ortalama eğim, dik yamaç eğimi (p90), 15°+ dik alan oranı, çoraklık",86,rölyef
+Moon_Shackleton,2,Atacama_Yungay,known,-24.162,-70.052,"pürüzlülük, hipsometri",86,rölyef
+Moon_deGerlache,1,Hawaii_MaunaKea,known,19.806,-155.502,"rölyef, ortalama eğim, dik yamaç eğimi (p90), hipsometri, çoraklık",100,-
+Moon_deGerlache,2,SCAN_37.25N_34.35E,scan,37.19,34.289,15°+ dik alan oranı,100,-
+Moon_deGerlache,3,Atacama_Yungay,known,-24.054,-70.051,pürüzlülük,100,-
+Moon_Malapert,1,Hawaii_MaunaKea,known,19.806,-155.502,"rölyef, ortalama eğim, dik yamaç eğimi (p90), pürüzlülük, hipsometri, çoraklık",100,-
+Moon_Malapert,2,SCAN_37.25N_34.35E,scan,37.19,34.289,15°+ dik alan oranı,100,-
+Mars_Gusev_Spirit,1,Haughton,known,75.433,-89.69,"rölyef, ortalama eğim, dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, hipsometri, çoraklık",100,-
+Mars_Jezero,1,Iceland_Holuhraun,known,64.919,-16.953,"rölyef, ortalama eğim, dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, hipsometri, çoraklık",100,-
+Mars_Gale_Curiosity,1,DeathValley,known,36.187,-116.877,"rölyef, ortalama eğim, dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, hipsometri, çoraklık",100,-
+Mars_Meridiani_Oppy,1,SCAN_38.55N_33.15E,scan,38.541,33.16,"rölyef, ortalama eğim, dik yamaç eğimi (p90), 15°+ dik alan oranı, pürüzlülük, hipsometri, çoraklık",100,-
