@@ -577,11 +577,12 @@
   // ---------- field check plan ----------
   function renderField() {
     const pick = (id, ds) => { const W = D["windows_" + ds], sc = W.scores[id].genel, i = bestIdx(W, sc, ["turkey", "scan"]); return { W, i }; };
-    const K = pick("Moon_Shackleton", "moon40"), Tm = pick("Mars_Meridiani_Oppy", "mars200");
+    const K = pick("Moon_Shackleton", "moon40"), Tm = pick("Mars_Meridiani_Oppy", "mars200"), Tr = pick("Moon_Malapert", "moon40");
     const T40 = winNear("moon40", Tm.W.lat[Tm.i], Tm.W.lon[Tm.i]);               // Lake Tuz window at the same 40 m resolution as Keşiş
     const soil = (lat, lon) => { let b = null, bd = 1e9; for (const e of D.extra.earth) { const d = Math.abs(e.lat - lat) + Math.abs(e.lon - lon); if (d < bd) { bd = d; b = e; } } return bd < 0.2 ? b : null; };
     const sites = [
       { k: "kesis", W: K.W, i: K.i, w40: K, s: soil(K.W.lat[K.i], K.W.lon[K.i]) },
+      { k: "toros", W: Tr.W, i: Tr.i, w40: Tr, s: soil(Tr.W.lat[Tr.i], Tr.W.lon[Tr.i]) },
       { k: "tuz", W: Tm.W, i: Tm.i, w40: T40, s: soil(Tm.W.lat[Tm.i], Tm.W.lon[Tm.i]) }
     ];
     const val = (x) => {
@@ -597,13 +598,13 @@
     const V = sites.map(val);
     const checks = ["slope", "cover", "soil", "min", "access"];
     let h = `<header><span class="eyebrow">${t("nav.field")}</span><h2>${t("fd.title")}</h2><p class="lede">${t("fd.lede")}</p></header>
-      <section class="section"><h3>${t("fd.sites")}</h3><div class="grid2">${sites.map((x) => `<div class="kpi">
+      <section class="section"><h3>${t("fd.sites")}</h3><div class="grid3">${sites.map((x) => `<div class="kpi">
         <span class="eyebrow">${t("fd.for." + x.k)}</span><b style="font-size:1.1rem">${esc(siteName(x.W.site[x.i], x.W.lat[x.i], x.W.lon[x.i], x.W.ap[x.i]))}</b>
         <p>${t("fd.site." + x.k)}</p><p>${t("pl.col.month")}: ${monthOf(x.W.site[x.i])} · ${t("ui.airport")}: ${apText(x.W, x.i)}</p>
         <p class="num">${fmt(x.W.lat[x.i], 3)}, ${fmt(x.W.lon[x.i], 3)} · <a href="${gmaps(x.W.lat[x.i], x.W.lon[x.i])}" target="_blank" rel="noopener">${t("ui.gmaps")}</a></p></div>`).join("")}</div></section>
       <section class="section"><h3>${t("fd.checks")}</h3><div class="tbl"><table><thead><tr><th>${t("fd.col.what")}</th><th>${t("fd.col.how")}</th>
-        <th>${esc(siteName(K.W.site[K.i]))}</th><th>${esc(siteName(Tm.W.site[Tm.i]))}</th><th>${t("fd.col.src")}</th></tr></thead><tbody>` +
-      checks.map((c) => `<tr><td><b>${t("fd.c." + c)}</b></td><td>${t("fd.c." + c + ".how")}</td><td>${V[0][c]}</td><td>${V[1][c]}</td><td class="src">${t("fd.c." + c + ".src")}</td></tr>`).join("") +
+        ${sites.map((x) => `<th>${esc(siteName(x.W.site[x.i], x.W.lat[x.i], x.W.lon[x.i], x.W.ap[x.i]))}</th>`).join("")}<th>${t("fd.col.src")}</th></tr></thead><tbody>` +
+      checks.map((c) => `<tr><td><b>${t("fd.c." + c)}</b></td><td>${t("fd.c." + c + ".how")}</td>${V.map((v) => `<td>${v[c]}</td>`).join("")}<td class="src">${t("fd.c." + c + ".src")}</td></tr>`).join("") +
       `</tbody></table></div><p class="src">${t("fd.res")}</p></section>
       <section class="section"><h3>${t("fd.rule.t")}</h3><p style="margin:0">${t("fd.rule")}</p><p class="note">${t("fd.lim")}</p></section>`;
     $("#fieldv").innerHTML = h;

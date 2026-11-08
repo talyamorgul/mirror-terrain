@@ -257,6 +257,8 @@ input[type=range] { accent-color: var(--accent); }
 .plan h4 { margin: 0; font-size: 1rem; }
 .btn { font: 600 .9rem var(--body); padding: 9px 16px; border-radius: var(--r); border: 1px solid var(--ink); background: var(--ink); color: var(--surface); cursor: pointer; }
 .cellbox { border: 1px solid var(--line); border-radius: var(--r); padding: 12px; background: var(--surface); display: grid; gap: 6px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 900px) { .grid3 { grid-template-columns: minmax(0, 1fr); } }
 .soilcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
 @media print {
   body.print-plan .band, body.print-plan footer, body.print-plan .noprint, body.print-plan .loading { display: none !important; }
