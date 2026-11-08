@@ -74,9 +74,15 @@
   async function loadAll() {
     const names = ["meta", "windows_moon40", "windows_mars200", "windows_mars463", "twins", "turkey", "scan_grid", "climate",
       "validation", "rock", "extra", "access", "cards"];
-    const opt = ["emit", "countries"];
+    const opt = ["emit", "countries", "robust_sites", "artemis", "cells"];
     const res = await Promise.all(names.map((n) => getJSON(n)).concat(opt.map((n) => getJSON(n, true))));
     names.concat(opt).forEach((n, i) => (D[n] = res[i]));
+  }
+
+  // site-level robustness: share of the 200 weight draws in which a site is Türkiye's best / in the overall top 3
+  function robSite(ds, target, site) {
+    if (!D.robust_sites) return null;
+    return D.robust_sites.rows.find((r) => r.veri === ds && r.target === target && r.site === site) || null;
   }
 
   // window table for a dataset with current scores
@@ -101,7 +107,7 @@
   }
 
   // ---------- routing ----------
-  const VIEWS = ["explore", "findings", "turkey", "rover", "validation", "method", "files", "about"];
+  const VIEWS = ["explore", "findings", "turkey", "plan", "field", "rover", "validation", "method", "files", "about"];
   function route() {
     const h = (location.hash || "#explore").slice(1);
     S.view = VIEWS.includes(h) ? h : "explore";
@@ -116,6 +122,8 @@
     if (S.view === "findings") renderFindings();
     if (S.view === "turkey") renderTurkey();
     if (S.view === "rover") renderRover();
+    if (S.view === "plan") renderPlan();
+    if (S.view === "field") renderField();
     if (S.view === "validation") renderValidation();
     if (S.view === "method") renderMethod();
     if (S.view === "files") renderFiles();
@@ -287,6 +295,8 @@
       const p = rob["tr_en_iyi_ayni_kaldi_%"];
       h += `<p class="note ${p < 50 ? "warn" : ""}">${t(p < 50 ? "rob.unstable" : "rob.stable", { p })}</p>`;
     }
+    const rs = S.mode === "genel" ? robSite(dsOf(id), id, W.site[bT]) : null;
+    if (rs && rs["tr_birinci_%"] !== null) h += `<p class="note">${t("rob.site", { s: esc(siteName(W.site[bT], W.lat[bT], W.lon[bT], W.ap[bT])), a: rs["tr_birinci_%"], b: rs["ilk3_%"], n: D.robust_sites.draws })}</p>`;
 
     // twin team
     if (tw) {
@@ -368,8 +378,24 @@
         <div class="kpi"><span class="eyebrow">${t("val.k.loo.t")}</span><span class="big num">${f.loo}/${f.n}</span><p>${t("val.k.loo")}</p></div>
       </div>
       <ol style="margin:0;padding-left:22px;display:grid;gap:12px">${["kesis", "mer", "modes", "when"].map((k) => `<li>${t("find." + k, f)}</li>`).join("")}<li id="find-rover" hidden></li><li>${t("find.limits", f)}</li></ol>
-      <p class="note">${t("find.more")}</p>`;
+      <p class="note">${t("find.more")}</p>${artemisHTML()}`;
     roverFinding();
+  }
+  // ---------- Artemis candidate landing regions (scored with the main scaling; other results unchanged) ----------
+  function artemisHTML() {
+    const A = D.artemis; if (!A || !A.regions || !A.regions.length) return "";
+    const W = D.windows_moon40;
+    const nm = (x) => { const k = W.site.findIndex((s, i) => s === x.site && Math.abs(W.lat[i] - x.lat) < 1e-3 && Math.abs(W.lon[i] - x.lon) < 1e-3);
+      return esc(siteName(x.site, x.lat, x.lon, k >= 0 ? W.ap[k] : apFor("moon40", x.lat, x.lon))); };
+    const cnt = {}; A.regions.forEach((r) => { cnt[r.best_tr.site] = (cnt[r.best_tr.site] || 0) + 1; });
+    const top = Object.entries(cnt).sort((a, b) => b[1] - a[1])[0], ex = A.regions.find((r) => r.best_tr.site === top[0]).best_tr;
+    const rows = A.regions.slice().sort((a, b) => a.lat - b.lat).map((r) => `<tr><td><b>${esc(r.region.replace(/_/g, " "))}</b><br><span class="src num">${fmt(r.lat, 2)}, ${fmt(r.lon, 2)}</span></td>
+      <td>${nm(r.top[0])}<br><span class="src">${t("group." + r.top[0].group)}</span></td><td class="n">${fmt(r.top[0].score, 1)}</td>
+      <td>${nm(r.best_tr)}</td><td class="n">${fmt(r.best_tr.score, 1)}</td></tr>`).join("");
+    return `<section class="section"><h3>${t("art.t")}</h3><p style="margin:0">${t("art.p")}</p>
+      <p style="margin:0">${t("art.find", { s: nm(ex), n: top[1], all: A.regions.length })}</p>
+      <div class="tbl"><table><thead><tr><th>${t("art.col.region")}</th><th>${t("best.earth")}</th><th class="n">${t("ui.score")}</th><th>${t("best.turkey")}</th><th class="n">${t("ui.score")}</th></tr></thead>
+      <tbody>${rows}</tbody></table></div><p class="src">${t("art.src")}</p></section>`;
   }
   async function roverFinding() {                    // computed from the rover grids with the same planner as the Rover page
     const el = $("#find-rover"); if (!el) return;
@@ -392,6 +418,10 @@
   }
 
   // ---------- Türkiye view ----------
+  function robCell(r) {
+    const rs = robSite(bodyOf(r.id) === "moon" ? "moon40" : "mars200", r.id, r.W.site[r.i]);
+    return rs && rs["tr_birinci_%"] !== null ? `<b>${rs["tr_birinci_%"]}%</b><br><span class="src">${t("rob.top3", { b: rs["ilk3_%"] })}</span>` : "–";
+  }
   function renderTurkey() {
     const rows = TARGET_ORDER.map((id) => {
       const W = D["windows_" + (bodyOf(id) === "moon" ? "moon40" : "mars200")], sc = W.scores[id].genel;
@@ -410,13 +440,15 @@
       <p style="margin:0">${t("tr.why.res", why)}</p></section>
       <div id="trmap" role="region" aria-label="Map"></div>
       <p class="src">${t("tr.mapnote")}${D.countries ? " " + t("tr.mapnote.border") : ""}</p>
+      ${D.cells ? `<div id="trcell" class="cellbox" aria-live="polite"><p class="hint" style="margin:0">${t("cell.hint", { n: D.cells.cells.length, p: fmt(100 * D.cells.min_barren, 0) })}</p></div>` : ""}
       <section class="section"><h3>${t("tr.table")}</h3><div class="tbl"><table><thead><tr><th>${t("ui.target")}</th><th>${t("tr.site")}</th>
-      <th class="n">${t("ui.score")}</th><th class="n">${t("tr.ratio")}</th><th>${t("tr.month")}</th><th>${t("ui.airport")}</th></tr></thead><tbody>` +
+      <th class="n">${t("ui.score")}</th><th class="n">${t("tr.ratio")}</th><th>${t("tr.month")}</th><th>${t("ui.airport")}</th>${D.robust_sites ? `<th class="n">${t("rob.col")}</th>` : ""}</tr></thead><tbody>` +
       rows.map((r) => `<tr><td>${esc(targetName(r.id))}</td><td><a href="${gmaps(r.W.lat[r.i], r.W.lon[r.i])}" target="_blank" rel="noopener">${esc(siteName(r.W.site[r.i], r.W.lat[r.i], r.W.lon[r.i], r.W.ap[r.i]))}</a>
         ${r.W.strip[r.i] ? `<br><span class="src">${t("warn.strip", { s: esc(r.W.strip[r.i]) })}</span>` : ""}</td>
-        <td class="n">${fmt(r.s, 1)}</td><td class="n">${fmt(r.ratio, 0)}%</td><td>${r.month}</td><td>${esc(r.W.ap[r.i])} · <span class="num">${fmt(r.W.ap_km[r.i], 0)} km</span></td></tr>`).join("") +
-      `</tbody></table></div></section>
+        <td class="n">${fmt(r.s, 1)}</td><td class="n">${fmt(r.ratio, 0)}%</td><td>${r.month}</td><td>${esc(r.W.ap[r.i])} · <span class="num">${fmt(r.W.ap_km[r.i], 0)} km</span></td>${D.robust_sites ? `<td class="n">${robCell(r)}</td>` : ""}</tr>`).join("") +
+      `</tbody></table></div>${D.robust_sites ? `<p class="src">${t("rob.col.h", { n: D.robust_sites.draws })}</p>` : ""}</section>
       <section class="section"><h3>${t("tr.heat.t")}</h3><p class="hint">${t("tr.heat.h")}</p>${heatmapHTML()}</section>
+      ${soilCardsHTML()}
       <section class="section"><h3>${t("tr.checked")}</h3><ul style="margin:0;padding-left:20px;display:grid;gap:6px">
         <li>${t("tr.check.kesis", facts())}</li><li>${t("tr.check.toros")}</li><li>${t("tr.check.tuz", facts())}</li><li>${t("tr.check.igdir")}</li></ul></section>
       <section class="section"><h3>${t("tr.known")}</h3><p style="margin:0">${t("tr.salda")}${whySrc("TR_Salda")}</p></section>
@@ -434,10 +466,43 @@
       L.rectangle([[G.lat[k] - 0.05, G.lon[k] - 0.05], [G.lat[k] + 0.05, G.lon[k] + 0.05]],
         { stroke: false, fillColor: rampColor(G.barren[k]), fillOpacity: 0.55, interactive: false }).addTo(trmap);
     }
+    if (D.cells) {
+      D.cells.cells.forEach((c) => L.rectangle([[c.lat - 0.05, c.lon - 0.05], [c.lat + 0.05, c.lon + 0.05]],
+        { color: "#F2C48D", weight: 1, fill: false, interactive: false }).addTo(trmap));
+      trmap.on("click", (e) => showCell(e.latlng.lat, e.latlng.lng, rows));
+    }
     rows.forEach((r, k) => {
       L.marker([r.W.lat[r.i], r.W.lon[r.i]], { icon: L.divIcon({ className: "", html: `<div style="width:26px;height:26px;border-radius:50%;background:${bodyOf(r.id) === "moon" ? "#d9d9d9" : css("--mars")};color:#111;border:2px solid #111;display:grid;place-items:center;font:600 11px var(--mono)">${bodyOf(r.id) === "moon" ? "☾" : "♂"}</div>`, iconSize: [26, 26], iconAnchor: [13, 13] }) })
         .bindTooltip(`${esc(targetName(r.id))} → ${esc(siteName(r.W.site[r.i], r.W.lat[r.i], r.W.lon[r.i], r.W.ap[r.i]))} · ${fmt(r.s, 1)}`).addTo(trmap);
     });
+  }
+
+  // ---------- clickable Türkiye cells ----------
+  function showCell(lat, lon, rows) {
+    const box = $("#trcell"); if (!box) return;
+    const G = D.scan_grid, C = D.cells;
+    let k = -1, bd = 1e9;
+    for (let i = 0; i < G.lat.length; i++) { const d = Math.max(Math.abs(G.lat[i] - lat), Math.abs(G.lon[i] - lon)); if (d < bd) { bd = d; k = i; } }
+    if (k < 0 || bd > 0.051) { box.innerHTML = `<p class="hint" style="margin:0">${t("cell.outside")}</p>`; return; }
+    const glat = G.lat[k], glon = G.lon[k], bar = G.barren[k];
+    const head = `<b>${t("cell.title", { lat: fmt(glat, 2), lon: fmt(glon, 2) })}</b> · <span class="src">${t("cell.barren", { p: bar === null ? "–" : fmt(100 * bar, 0) })}</span>`;
+    const c = C.cells.find((x) => Math.abs(x.lat - glat) < 1e-3 && Math.abs(x.lon - glon) < 1e-3);
+    if (!c) {
+      const why = bar === null ? "cell.nodata" : bar < C.min_barren ? "cell.veg" : "cell.excluded";
+      box.innerHTML = `<p style="margin:0">${head}</p><p class="note" style="margin:6px 0 0">${t(why, { p: fmt(100 * C.min_barren, 0) })}</p>`; return;
+    }
+    const trBest = (id) => { const r = rows.find((x) => x.id === id); return r ? r.s : null; };
+    const main = TARGET_ORDER.filter((id) => c.s[id] !== undefined && c.s[id] !== null && trBest(id));
+    const ratio = (id) => 100 * c.s[id] / trBest(id);          // scores are compared within a target, never across Moon and Mars
+    const best = main.reduce((a, b) => (ratio(b) > ratio(a) ? b : a), main[0]);
+    const art = (D.artemis && D.artemis.regions || []).filter((r) => c.s[r.id] !== undefined).sort((a, b) => c.s[b.id] - c.s[a.id]);
+    box.innerHTML = `<p style="margin:0">${head}</p>
+      <p style="margin:6px 0 0">${t("cell.best", { t: esc(targetName(best)), p: fmt(ratio(best), 0) })} ${t("ui.airport")}: ${esc(c.ap)}${c.iata ? " (" + esc(c.iata) + ")" : ""} · <span class="num">${fmt(c.ap_km, 0)} km</span></p>
+      <div class="tbl"><table><thead><tr><th>${t("ui.target")}</th><th class="n">${t("cell.col.this")}</th><th class="n">${t("cell.col.trbest")}</th><th class="n">${t("cell.col.ratio")}</th></tr></thead><tbody>` +
+      main.map((id) => `<tr${id === best ? ' style="font-weight:600"' : ""}><td>${esc(targetName(id))}</td><td class="n">${fmt(c.s[id], 1)}</td><td class="n">${fmt(trBest(id), 1)}</td><td class="n">${fmt(ratio(id), 0)}%</td></tr>`).join("") +
+      `</tbody></table></div>` +
+      (art.length ? `<p class="src" style="margin:4px 0 0">${t("cell.art", { r: esc(art[0].region.replace(/_/g, " ")), s: fmt(c.s[art[0].id], 1) })}</p>` : "") +
+      `<p class="src" style="margin:4px 0 0">${t("cell.note")} · <a href="${gmaps(glat, glon)}" target="_blank" rel="noopener">${t("ui.gmaps")}</a></p>`;
   }
 
   function heatmapHTML() {
@@ -455,6 +520,115 @@
     return `<div class="tbl"><table class="heat"><thead><tr><th>${t("ui.target")}</th>${modes.map((m) => `<th class="n">${t("mode." + m)}</th>`).join("")}</tr></thead><tbody>` +
       TARGET_ORDER.map((id) => `<tr><td>${esc(targetName(id))}</td>${modes.map((m) => cell(cells.find((c) => c.id === id && c.m === m))).join("")}</tr>`).join("") +
       `</tbody></table></div>`;
+  }
+
+  // ---------- shared helpers for the planner, field check and soil cards ----------
+  function winNear(ds, lat, lon) {                  // nearest window in a dataset (for airport and features of a team member)
+    const W = D["windows_" + ds]; let b = -1, bd = 1e9;
+    for (let i = 0; i < W.lat.length; i++) { const d = Math.abs(W.lat[i] - lat) + Math.abs(W.lon[i] - lon); if (d < bd) { bd = d; b = i; } }
+    return { W, i: b };
+  }
+  const monthOf = (site) => { const c = D.climate[site]; return c && c.best !== null ? t("monl." + c.best) : "–"; };
+  const apText = (W, i) => i < 0 || !W.ap[i] ? "–" : `${esc(W.ap[i])}${W.iata[i] ? " (" + esc(W.iata[i]) + ")" : ""} · <span class="num">${fmt(W.ap_km[i], 0)} km</span>`;
+  const isTR = (site) => site.startsWith("SCAN_") || site.startsWith("TR_");
+
+  // ---------- test campaign planner ----------
+  function renderPlan() {
+    const id = S.planT || S.target, mode = S.planM || S.mode, tw = twinFor(id, mode), ds = D.twins[id] ? D.twins[id].dataset : dsOf(id);
+    const Wb = D["windows_" + ds], sc = (Wb.scores[id] || {})[mode] || [], bT = bestIdx(Wb, sc, ["turkey", "scan"]);
+    const rob = (D.validation.weights || []).find((r) => r.target === id && r.veri === ds);
+    const today = new Intl.DateTimeFormat(S.lang, { day: "numeric", month: "long", year: "numeric" }).format(new Date());
+    let rows = "";
+    if (tw) tw.members.forEach((m, k) => {
+      const { W, i } = winNear(ds, m.lat, m.lon);
+      rows += `<tr><td class="n">${k + 1}</td><td><b>${esc(siteName(m.site, m.lat, m.lon, W.ap[i]))}</b><br><span class="src">${t("group." + m.group)}</span></td>
+        <td><span class="chips">${m.covers.map((c) => `<span class="chip">${t("feat." + c)}</span>`).join("")}</span></td>
+        <td>${monthOf(m.site)}</td><td>${apText(W, i)}</td><td class="num">${fmt(m.lat, 3)}, ${fmt(m.lon, 3)}</td></tr>`;
+    });
+    let h = `<header class="noprint"><span class="eyebrow">${t("nav.plan")}</span><h2>${t("pl.title")}</h2><p class="lede">${t("pl.lede")}</p></header>
+      <section class="section rv-controls noprint"><div><span class="label">${t("ui.target")}</span><div class="seg">${TARGET_ORDER.map((x) =>
+        `<button data-pt="${x}" aria-pressed="${x === id}">${esc(targetName(x))}</button>`).join("")}</div></div>
+        <div><span class="label">${t("ui.mode")}</span><div class="seg">${D.meta.modes.map((x) => `<button data-pm="${x}" aria-pressed="${x === mode}">${t("mode." + x)}</button>`).join("")}</div>
+        <p class="hint" style="margin:6px 0 0">${t("mode." + mode + ".hint")}</p></div></section>
+      <article class="plan" id="plancard">
+        <header style="display:grid;gap:2px"><span class="eyebrow">Mirror Terrain · ${t("pl.kind")}</span><h3 style="font-size:1.35rem">${t("pl.card", { t: esc(targetName(id)) })}</h3>
+          <span class="src">${t("pl.purpose", { m: t("mode." + mode) })} · ${t("body." + bodyOf(id))} · ${esc(today)}</span></header>`;
+    if (tw) {
+      h += `<section style="display:grid;gap:6px"><h4>${t("pl.team")}</h4><div class="tbl"><table><thead><tr><th class="n">#</th><th>${t("pl.col.site")}</th><th>${t("pl.col.covers")}</th>
+        <th>${t("pl.col.month")}</th><th>${t("ui.airport")}</th><th>${t("ui.coords")}</th></tr></thead><tbody>${rows}</tbody></table></div>
+        <span class="src">${t("pl.coverage", { p: fmt(tw.coverage, 0) })}</span><div class="bar"><i style="width:${tw.coverage}%"></i></div>
+        ${tw.missing.length ? `<div class="chips"><span class="src">${t("twin.missing")}</span>${tw.missing.map((c) => `<span class="chip miss">${t("feat." + c)}</span>`).join("")}</div>` : ""}</section>`;
+    }
+    if (bT >= 0) {
+      const site = Wb.site[bT];
+      h += `<section style="display:grid;gap:6px"><h4>${t("pl.tr")}</h4><dl class="kv">
+        <dt>${t("pl.col.site")}</dt><dd><b>${esc(siteName(site, Wb.lat[bT], Wb.lon[bT], Wb.ap[bT]))}</b> · <span class="num">${fmt(Wb.lat[bT], 3)}, ${fmt(Wb.lon[bT], 3)}</span></dd>
+        <dt>${t("ui.score")}</dt><dd class="num">${fmt(sc[bT], 1)}</dd>
+        <dt>${t("pl.col.month")}</dt><dd>${monthOf(site)}</dd><dt>${t("ui.airport")}</dt><dd>${apText(Wb, bT)}</dd></dl>
+        ${Wb.strip[bT] ? `<p class="note warn">${t("warn.strip", { s: esc(Wb.strip[bT]) })}</p>` : ""}
+        ${rob && mode === "genel" ? `<p class="note ${rob["tr_en_iyi_ayni_kaldi_%"] < 50 ? "warn" : ""}">${t(rob["tr_en_iyi_ayni_kaldi_%"] < 50 ? "rob.unstable" : "rob.stable", { p: rob["tr_en_iyi_ayni_kaldi_%"] })}</p>` : ""}${(() => { const rs = mode === "genel" ? robSite(ds, id, site) : null;
+          return rs && rs["tr_birinci_%"] !== null ? `<p class="note">${t("rob.site", { s: esc(siteName(site, Wb.lat[bT], Wb.lon[bT], Wb.ap[bT])), a: rs["tr_birinci_%"], b: rs["ilk3_%"], n: D.robust_sites.draws })}</p>` : ""; })()}</section>`;
+    }
+    h += `<p class="note">${t("pl.note")}</p><p class="src">${t("pl.src")} · talyamorgul.github.io/mirror-terrain</p></article>
+      <div class="noprint" style="display:grid;gap:4px;justify-items:start"><button type="button" class="btn" id="planpdf">${t("pl.pdf")}</button><span class="hint">${t("pl.pdf.h")}</span></div>`;
+    $("#planv").innerHTML = h;
+  }
+
+  // ---------- field check plan ----------
+  function renderField() {
+    const pick = (id, ds) => { const W = D["windows_" + ds], sc = W.scores[id].genel, i = bestIdx(W, sc, ["turkey", "scan"]); return { W, i }; };
+    const K = pick("Moon_Shackleton", "moon40"), Tm = pick("Mars_Meridiani_Oppy", "mars200");
+    const T40 = winNear("moon40", Tm.W.lat[Tm.i], Tm.W.lon[Tm.i]);               // Lake Tuz window at the same 40 m resolution as Keşiş
+    const soil = (lat, lon) => { let b = null, bd = 1e9; for (const e of D.extra.earth) { const d = Math.abs(e.lat - lat) + Math.abs(e.lon - lon); if (d < bd) { bd = d; b = e; } } return bd < 0.2 ? b : null; };
+    const sites = [
+      { k: "kesis", W: K.W, i: K.i, w40: K, s: soil(K.W.lat[K.i], K.W.lon[K.i]) },
+      { k: "tuz", W: Tm.W, i: Tm.i, w40: T40, s: soil(Tm.W.lat[Tm.i], Tm.W.lon[Tm.i]) }
+    ];
+    const val = (x) => {
+      const W = x.w40.W, i = x.w40.i, f = W.f;
+      return {
+        slope: t("fd.c.slope.val", { a: fmt(f.slope_mean[i], 1), b: fmt(100 * f.steep_frac[i], 0) }),
+        cover: t("fd.c.cover.val", { a: pct(f.w_barren_frac[i]) }),
+        soil: x.s && x.s.sand !== null ? t("fd.c.soil.val", { s: fmt(x.s.sand, 0), c: fmt(x.s.clay, 0), g: fmt(x.s.cfvo, 0) }) : t("soil.none"),
+        min: x.k === "tuz" ? t("fd.c.min.val") : "–",
+        access: t("fd.c.access.val", { km: fmt(x.W.ap_km[x.i], 0), ap: esc(x.W.ap[x.i]) })
+      };
+    };
+    const V = sites.map(val);
+    const checks = ["slope", "cover", "soil", "min", "access"];
+    let h = `<header><span class="eyebrow">${t("nav.field")}</span><h2>${t("fd.title")}</h2><p class="lede">${t("fd.lede")}</p></header>
+      <section class="section"><h3>${t("fd.sites")}</h3><div class="grid2">${sites.map((x) => `<div class="kpi">
+        <span class="eyebrow">${t("fd.for." + x.k)}</span><b style="font-size:1.1rem">${esc(siteName(x.W.site[x.i], x.W.lat[x.i], x.W.lon[x.i], x.W.ap[x.i]))}</b>
+        <p>${t("fd.site." + x.k)}</p><p>${t("pl.col.month")}: ${monthOf(x.W.site[x.i])} · ${t("ui.airport")}: ${apText(x.W, x.i)}</p>
+        <p class="num">${fmt(x.W.lat[x.i], 3)}, ${fmt(x.W.lon[x.i], 3)} · <a href="${gmaps(x.W.lat[x.i], x.W.lon[x.i])}" target="_blank" rel="noopener">${t("ui.gmaps")}</a></p></div>`).join("")}</div></section>
+      <section class="section"><h3>${t("fd.checks")}</h3><div class="tbl"><table><thead><tr><th>${t("fd.col.what")}</th><th>${t("fd.col.how")}</th>
+        <th>${esc(siteName(K.W.site[K.i]))}</th><th>${esc(siteName(Tm.W.site[Tm.i]))}</th><th>${t("fd.col.src")}</th></tr></thead><tbody>` +
+      checks.map((c) => `<tr><td><b>${t("fd.c." + c)}</b></td><td>${t("fd.c." + c + ".how")}</td><td>${V[0][c]}</td><td>${V[1][c]}</td><td class="src">${t("fd.c." + c + ".src")}</td></tr>`).join("") +
+      `</tbody></table></div><p class="src">${t("fd.res")}</p></section>
+      <section class="section"><h3>${t("fd.rule.t")}</h3><p style="margin:0">${t("fd.rule")}</p><p class="note">${t("fd.lim")}</p></section>`;
+    $("#fieldv").innerHTML = h;
+  }
+
+  // ---------- soil cards (Türkiye page; shown, not scored) ----------
+  function soilCardsHTML() {
+    const by = new Map();
+    for (const p of D.extra.points) {
+      if (!isTR(p.site)) continue;
+      const e = D.extra.earth.find((x) => Math.abs(x.lat - p.lat) < 1e-6 && Math.abs(x.lon - p.lon) < 1e-6); if (!e) continue;
+      const k = p.site; if (!by.has(k)) by.set(k, { p, e, targets: new Set() });
+      if (p.rol === "Türkiye en iyi" && by.get(k).p.rol !== "Türkiye en iyi") Object.assign(by.get(k), { p, e });   // same window as the Türkiye table and Field check
+      by.get(k).targets.add(p.target);
+    }
+    if (!by.size) return "";
+    const bar = (label, v, max, unit) => `<div style="display:grid;grid-template-columns:7.5em 1fr 3.6em;gap:8px;align-items:center;font-size:.84rem">
+      <span>${label}</span><div class="bar"><i style="width:${Math.max(0, Math.min(100, 100 * v / max))}%;background:var(--earth)"></i></div><span class="num" style="text-align:right">${fmt(v, unit === "%" ? 0 : 2)}${unit === "%" ? "%" : ""}</span></div>`;
+    return `<section class="section"><h3>${t("soil.t")}</h3><p class="hint">${t("soil.h")}</p><div class="soilcards">` +
+      [...by.values()].map(({ p, e, targets }) => `<div class="kpi"><b>${esc(siteName(p.site, p.lat, p.lon, apFor("moon40", p.lat, p.lon)))}</b>
+        <span class="src">${t("soil.for", { t: [...targets].map((x) => esc(targetName(x))).join(", ") })}</span>
+        ${e.sand === null ? `<p>${t("soil.none")}</p>` : bar(t("soil.sand"), e.sand, 100, "%") + bar(t("soil.clay"), e.clay, 100, "%") + bar(t("soil.cfvo"), e.cfvo, 100, "%") +
+          `<p>${t("soil.bdod")}: <span class="num">${fmt(e.bdod, 2)} g/cm³</span></p>`}
+        <p>${t("pf." + (e.permafrost || "none"))}</p></div>`).join("") +
+      `</div><p class="src">${t("extra.src.moon")}</p></section>`;
   }
 
   // ---------- validation view ----------
@@ -891,6 +1065,9 @@
   document.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
     if (b.id === "rvplay") { rvPlay(); return; }
+    if (b.id === "planpdf") { document.body.classList.add("print-plan"); window.print(); return; }
+    if (b.dataset.pt) { S.planT = b.dataset.pt; renderPlan(); return; }
+    if (b.dataset.pm) { S.planM = b.dataset.pm; renderPlan(); return; }
     if (b.dataset.rt) { RV.target = b.dataset.rt; renderRover(); return; }
     if (b.dataset.rp) { RV.slope = +b.dataset.rp; renderRover(); return; }
     if (b.dataset.l) { S.lang = b.dataset.l; store("lang", S.lang); applyStatic(); if (map) { map.remove(); map = null; } renderView(); }
@@ -903,6 +1080,7 @@
     const c = e.target; if (c.dataset && c.dataset.ly) { S.layers[c.dataset.ly] = c.checked; renderMap(); }
   });
   window.addEventListener("hashchange", route);
+  window.addEventListener("afterprint", () => document.body.classList.remove("print-plan"));
 
   // ---------- start ----------
   (async function start() {

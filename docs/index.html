@@ -251,6 +251,24 @@ input[type=range] { accent-color: var(--accent); }
 .rv-card figcaption { display: grid; gap: 2px; }
 .rv-canvas { width: 100%; aspect-ratio: 1 / 1; border: 1px solid var(--line); border-radius: var(--r); background: var(--sunk); touch-action: none; cursor: grab; display: block; }
 @media (max-width: 700px) { .rv-controls { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- test plan, field check, soil cards ---------- */
+.plan { border: 1px solid var(--line); border-radius: var(--r); padding: 16px; background: var(--surface); display: grid; gap: 16px; }
+.plan h4 { margin: 0; font-size: 1rem; }
+.btn { font: 600 .9rem var(--body); padding: 9px 16px; border-radius: var(--r); border: 1px solid var(--ink); background: var(--ink); color: var(--surface); cursor: pointer; }
+.cellbox { border: 1px solid var(--line); border-radius: var(--r); padding: 12px; background: var(--surface); display: grid; gap: 6px; }
+.soilcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+@media print {
+  body.print-plan .band, body.print-plan footer, body.print-plan .noprint, body.print-plan .loading { display: none !important; }
+  @page { margin: 14mm; }
+  html:has(body.print-plan), body.print-plan { background: #fff !important; }
+  body.print-plan main { padding: 0; }
+  body.print-plan .tbl { overflow: visible; }
+  body.print-plan .plan table { font-size: .8rem; }
+  body.print-plan .plan { border: 0; padding: 0; }
+  body.print-plan, body.print-plan .plan { background: #fff; color: #111; }
+  body.print-plan .chip { border: 1px solid #999; }
+}
 </style>
 
 <header class="band">
@@ -260,6 +278,8 @@ input[type=range] { accent-color: var(--accent); }
       <a href="#explore" data-i18n="nav.explore">Explorer</a>
       <a href="#findings" data-i18n="nav.findings">Findings</a>
       <a href="#turkey" data-i18n="nav.turkey">Türkiye</a>
+      <a href="#plan" data-i18n="nav.plan">Test plan</a>
+      <a href="#field" data-i18n="nav.field">Field check</a>
       <a href="#rover" data-i18n="nav.rover">Rover</a>
       <a href="#validation" data-i18n="nav.validation">Validation</a>
       <a href="#method" data-i18n="nav.method">Method &amp; data</a>
@@ -296,6 +316,8 @@ input[type=range] { accent-color: var(--accent); }
   <!-- ===== Türkiye ===== -->
   <section class="view" id="v-findings" hidden><div class="reading" id="findings"></div></section>
   <section class="view" id="v-turkey" hidden><div class="reading" id="turkey"></div></section>
+  <section class="view" id="v-plan" hidden><div class="reading" id="planv"></div></section>
+  <section class="view" id="v-field" hidden><div class="reading" id="fieldv"></div></section>
   <section class="view" id="v-rover" hidden><div class="reading" id="roverv"></div></section>
   <section class="view" id="v-validation" hidden><div class="reading" id="validation"></div></section>
   <section class="view" id="v-method" hidden><div class="reading" id="method"></div></section>
