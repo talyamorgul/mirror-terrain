@@ -19,6 +19,10 @@ Landers, rovers and base equipment bound for the Moon and Mars are first tested 
 4. suggests **when** to test, from monthly climate data;
 5. **scans all of Türkiye** in 0.1° cells and finds candidates that had not been described before;
 6. lets you drive a **rover simulation** on the target and its Earth twins and compare the results.
+7. turns the results into a **test campaign plan** for a chosen target and test purpose, which can be saved as a PDF;
+8. lists what to measure in a **field check** at three Türkiye candidates, and which map value each measurement checks;
+9. scores NASA's **nine Artemis candidate landing regions** near the lunar south pole with the same method;
+10. lets you **click any cell on the Türkiye map** and compare it with every target.
 
 ## Targets
 
@@ -63,6 +67,7 @@ AUC measures how well known analogs are ranked above vegetated controls (0.5 = c
 1. Open `notebook/MirrorTerrain.ipynb` in Google Colab.
 2. Get a free OpenTopography API key and a free NASA Earthdata account, and add them in Colab Secrets as `OPENTOPO_KEY`, `EARTHDATA_USERNAME` and `EARTHDATA_PASSWORD`.
 3. Run all cells. Results are saved to Google Drive (`MyDrive/MirrorTerrain`) and the last cell downloads them as a zip file.
+   The clickable Türkiye cells need about 95 extra OpenTopography downloads. The free key allows 50 per 24 hours, so this section may need a second run the next day; it continues where it stopped.
 4. To view the website locally, run `python -m http.server` inside `docs/` and open `http://localhost:8000`.
 
 ## Data sources
@@ -78,6 +83,7 @@ AUC measures how well known analogs are ranked above vegetated controls (0.5 = c
 | NASA POWER climatology | NASA | NASA |
 | EMIT L2B mineral identification (LP DAAC) | NASA | NASA |
 | Macrostrat geologic map API | Macrostrat | CC BY 4.0 |
+| Artemis candidate landing region boundaries (ScienceBase item 671a6fa8d34efed5620f89f8) | USGS | USGS |
 | Geologic Map of Mars, SIM 3292 (Tanaka et al. 2014) | USGS | USGS |
 | Unified Geologic Map of the Moon, 1:5M (2020) | USGS | USGS |
 | SoilGrids 2.0 | ISRIC | CC BY 4.0 |

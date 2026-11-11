@@ -759,6 +759,8 @@
     ["ISRIC SoilGrids 2.0", "https://soilgrids.org/", "src.soil", "CC BY 4.0"],
     ["Obu et al. 2019 – Northern Hemisphere permafrost zonation (PANGAEA)", "https://apgc.awi.de/dataset/pex/resource/e9f1ab3a-2b75-4b49-9355-6b36bba8a1d8", "src.pf", "CC BY 3.0"],
     ["OurAirports open data", "https://ourairports.com/data/", "src.air", "Public domain"],
+    ["USGS ScienceBase – Down-selected Artemis III candidate landing site navigational grids (9 regions)", "https://www.sciencebase.gov/catalog/item/671a6fa8d34efed5620f89f8", "src.art", "USGS"],
+    ["NASA – Artemis IV mission page (nine candidate landing regions)", "https://www.nasa.gov/mission/artemis-iv/", "src.art4", "NASA"],
     ["Natural Earth", "https://www.naturalearthdata.com/", "src.ne", "Public domain"]
   ];
 
@@ -767,7 +769,8 @@
     "features_targets_moon.csv", "features_targets_mars.csv", "ranks_moon.csv", "ranks_mars_HRSC_MOLA_200m.csv",
     "ranks_mars_MOLA_463m.csv", "validation.csv", "twin_teams.csv", "modes_validation.csv", "modes_validation_summary.csv", "modes_best_windows.csv", "modes_twin_teams.csv",
     "turkey_discovery.csv", "scan_grid_turkey.csv", "candidate_cards.csv", "best_months.csv", "climate_monthly.csv", "climate_earth.csv", "rock_targets.csv", "rock_earth_v2.csv",
-    "ek_tablo.csv", "ek_soilgrids.csv", "emit_minerals.csv", "emit_library.csv", "accessibility.csv", "robustness_weights.csv", "robustness_loo.csv"];
+    "ek_tablo.csv", "ek_soilgrids.csv", "emit_minerals.csv", "emit_library.csv", "accessibility.csv", "robustness_weights.csv", "robustness_loo.csv", "robustness_sites.csv",
+    "features_targets_artemis.csv", "ranks_artemis.csv", "features_cells_40m.csv", "features_cells_200m.csv", "cells_scores.csv"];
   const FIGS = ["fig_moon_targets", "fig_mars_targets_200m", "fig_turkey_scan", "fig_candidate_cards", "fig_best_month", "fig_modes", "fig_robustness"];
   const NOTEBOOK = "MirrorTerrain.ipynb";
   function renderFiles() {
